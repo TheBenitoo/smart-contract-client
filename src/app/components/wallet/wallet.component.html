@@ -1,0 +1,72 @@
+<div class="flex w-full justify-center">
+  <button class="flex flex-row justify-center bg-violet-900 hover:bg-indigo-900 text-white py-2 my-5 px-4 rounded-full"
+    (click)="onConnectWallet()">
+    {{walletConnected ? 'Wallet!': 'Wallet!'}}
+  </button>
+</div>
+
+<div class="flex w-full justify-center">
+  <div class="bg-slate-900 p-5 sm:w-96 w-full flex flex-col justify-start items-center">
+    <form (submit)="onMakeTransaction(transactionForm)" #transactionForm="ngForm">
+      <input name="destination" type="text"
+        class="bg-indigo-900 my-2 w-full rounded-sm p-2 outline-none text-white border-none text-sm"
+        placeholder="Zieladresse" ngModel>
+
+      <input name="amount" type="float"
+        class="bg-indigo-900 my-2 w-full rounded-sm p-2 outline-none text-white border-none text-sm"
+        placeholder="Betrag (Eth)" ngModel>
+
+      <input name="message" type="text"
+        class="bg-indigo-900 my-2 w-full rounded-sm p-2 outline-none text-white border-none text-sm"
+        placeholder="Nachricht" ngModel>
+
+      <div class="flex w-full justify-center">
+        <button type="submit"
+          class="bg-indigo-900 flex flex-row justify-center hover:bg-indigo-500 text-white font-semibold hover:text-white py-2 px-4 rounded">
+          Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="flex w-full justify-center">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="bg-white border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Sender
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Empfänger
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Betrag
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                Nachricht
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let map of mapp">
+            <tr class="bg-white-100 border-b">
+              <td class="px-6 py-4 p-2 whitespace-nowrap text-sm font-medium text-white">
+                {{map.sender}}
+              </td>
+              <td class="text-sm p-2 text-white font-light px-6 py-4 whitespace-nowrap">
+                {{map.receiver}}
+              </td>
+              <td class="text-sm p-2 text-white font-light px-6 py-4 whitespace-nowrap">
+                {{map.amount}} ETH
+              </td>
+              <td class="text-sm p-2 text-white font-light px-6 py-4 whitespace-nowrap">
+                {{map.message}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

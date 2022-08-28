@@ -1,0 +1,11 @@
+<!-- <span routerLink="/" routerLinkActive="activ">Home</span>
+<span routerLink="about" routerLinkActive="active">About Smart Contracts</span>
+<span routerLink="transactions" routerLinkActive="active">Transactions</span> -->
+<nav class="w-full flex md:justify-center justify between items-center p-4">
+  <ul class="text-white md:flex hiddent list-none flex-row justify between items-center flex-initial">
+    <li class="mx-4 cursor-pointer" *ngFor="let element of elements">
+      {{element.name}}
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
